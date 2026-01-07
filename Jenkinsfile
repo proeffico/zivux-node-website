@@ -38,7 +38,7 @@ pipeline {
         stage('Changing Ownership to Jenkins User') {
             steps {
                 sshPublisher(publishers: [sshPublisherDesc(
-                    configName: 'Derma',
+                    configName: 'OPS360',
                     transfers: [sshTransfer(
                         cleanRemote: false,
                         excludes: '',
@@ -63,7 +63,7 @@ pipeline {
         stage('Deploying') {
             steps {
                 sshPublisher(publishers: [sshPublisherDesc(
-                    configName: 'Derma',
+                    configName: 'OPS360',
                     transfers: [sshTransfer(
                         cleanRemote: false,
                         excludes: '',
@@ -90,7 +90,7 @@ pipeline {
     post {
         always {
             sshPublisher(publishers: [sshPublisherDesc(
-                        configName: 'Derma',
+                        configName: 'OPS360',
                         transfers: [sshTransfer(
                             cleanRemote: false,
                             excludes: '',

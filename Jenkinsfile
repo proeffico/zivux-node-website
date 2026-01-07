@@ -2,21 +2,7 @@ pipeline {
     agent any
 
     stages {
-        // stage('SonarQube Analysis') {
-        //     steps {
-        //         withSonarQubeEnv(installationName: 'SonarQube Scanner', credentialsId: 'aea03954-8d08-4cfa-9efe-7db4c726abc0') {
-        //             sh """/opt/sonarqube/bin/sonar-scanner \
-        //             -D sonar.login=admin \
-        //             -D sonar.password=Proeffico@!234 \
-        //             -D sonar.projectBaseDir=/var/lib/jenkins/workspace/$JOB_NAME/ \
-        //             -D sonar.exclusions=vendor/** \
-        //             -D sonar.projectKey=zivux-website \
-        //             -D sonar.sourceEncoding=UTF-8 \
-        //             -D sonar.host.url=http://sonarqube.proeffico.com/"""
-        //         }
-        //     }
-        // }
-
+      
 
                 stage('SonarQube analysis') {
             environment {
@@ -46,13 +32,6 @@ pipeline {
                 timeout(time: 1, unit: 'HOURS') {
                     waitForQualityGate abortPipeline: true
                 }
-            }
-        }
-
-        stage("OWASP Scan") {
-            steps {
-                dependencyCheck additionalArguments: '', odcInstallation: 'dependency-check'
-                dependencyCheckPublisher pattern: '**/dependency-check-report.xml'
             }
         }
 

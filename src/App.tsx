@@ -30,8 +30,15 @@ import Documentation from "./pages/Documentation";
 import APIDocs from "./pages/ApiReference";
 import HelpCenter from "./pages/HelpCenter";
 import StatusPage from "./pages/Status";
+import { useEffect } from "react";
 
+function AboutRedirect() {
+  useEffect(() => {
+    window.location.href = "https://proeffico.com/about/";
+  }, []);
 
+  return null;
+}
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -48,24 +55,24 @@ const App = () => (
             <Route path="/pricing" element={<PricingPage />} />
             <Route path="/use-cases" element={<UseCasesPage />} />
             <Route path="/integrations" element={<IntegrationsPage />} />
-            <Route path="/about" element={<AboutPage />} />
+            <Route path="/about" element={<AboutRedirect />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/privacy" element={<PrivacyPolicyPage />} />
             <Route path="/terms" element={<TermsConditionsPage />} />
             <Route path="/security" element={<SecurityPage />} />
             <Route path="/gdpr" element={<GDPRPage />} />
             <Route path="/demo" element={<ScheduleDemo />} />
-            <Route path="/blog" element={<Blobpage/>} />
+            <Route path="/blog" element={<Blobpage />} />
             <Route path="/docs" element={<Documentation />} />
             <Route path="/api" element={<APIDocs />} />
             <Route path="/help" element={<HelpCenter />} />
             <Route path="/status" element={<StatusPage />} />
           </Route>
-          
+
           {/* Auth Routes (no layout) */}
           <Route path="/login" element={<LoginPage />} />
           <Route path="/signup" element={<SignupPage />} />
-          
+
           {/* CRM Application Routes */}
           <Route path="/app" element={<AppLayout />}>
             <Route path="dashboard" element={<DashboardPage />} />
@@ -78,7 +85,7 @@ const App = () => (
             <Route path="users" element={<DashboardPage />} />
             <Route path="settings" element={<DashboardPage />} />
           </Route>
-          
+
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

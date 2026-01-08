@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Zap, Twitter, Linkedin, Github, Mail, Instagram, Youtube } from "lucide-react";
-
+import zivuxLogo from "@/assets/crm-logo.jpeg";
 const footerLinks = {
   product: [
     { name: "Features", href: "/features" },
@@ -35,15 +35,14 @@ export function Footer() {
           {/* Logo & Description */}
           <div className="col-span-2">
             <Link to="/" className="flex items-center gap-2 mb-4">
-              <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-primary to-purple-500 flex items-center justify-center">
-                <Zap className="w-5 h-5 text-primary-foreground" />
-              </div>
-              <span className="text-xl font-bold text-background">
-                Zivux<span className="text-primary">.ai</span>
-              </span>
+              <img
+                src={zivuxLogo}
+                alt="Zivux.ai Logo"
+                className="object-cover group-hover:scale-105 transition-transform" width={100} height={35}
+              />
             </Link>
             <p className="text-background/70 text-sm mb-6 max-w-xs">
-              The omnichannel CRM platform for modern businesses. Manage leads, 
+              The omnichannel CRM platform for modern businesses. Manage leads,
               customers, and support tickets from every channel.
             </p>
             <div className="flex gap-4">

@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import zivuxLogo from "@/assets/zivux-logo.png";
+import zivuxLogo from "@/assets/crm-logo.jpeg";
 
 const navLinks = [
   { name: "Features", href: "/features" },

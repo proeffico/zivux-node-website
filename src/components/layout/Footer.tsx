@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Zap, Twitter, Linkedin, Github, Mail, Instagram, Youtube } from "lucide-react";
+import { Twitter, Linkedin, Github, Mail, Instagram, Youtube } from "lucide-react";
 import zivuxLogo from "@/assets/crm-logo.jpeg";
 const footerLinks = {
   product: [

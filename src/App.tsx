@@ -18,7 +18,6 @@ import WhatsAppBotPage from "./pages/app/WhatsAppBotPage";
 import NotFound from "./pages/NotFound";
 import UseCasesPage from "./pages/UseCasesPage";
 import IntegrationsPage from "./pages/IntegrationsPage";
-import AboutPage from "./pages/AboutPage";
 import ContactPage from "./pages/ContactPage";
 import PrivacyPolicyPage from "./pages/PrivacyPolicyPage";
 import TermsConditionsPage from "./pages/terms-conditions";

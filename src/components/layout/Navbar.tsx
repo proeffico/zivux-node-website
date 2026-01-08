@@ -22,14 +22,14 @@ export function Navbar() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 group">
-            <img 
-              src={zivuxLogo} 
-              alt="Zivux.ai Logo" 
-              className="w-9 h-9 object-contain group-hover:scale-105 transition-transform duration-300"
+            <img
+              src={zivuxLogo}
+              alt="Zivux.ai Logo"
+              className="object-cover group-hover:scale-105 transition-transform" width={150} height={35}
             />
-            <span className="text-xl font-bold tracking-tight">
+            {/* <span className="text-xl font-bold tracking-tight">
               Zivux<span className="gradient-text">.ai</span>
-            </span>
+            </span> */}
           </Link>
 
           {/* Desktop Navigation */}
@@ -38,11 +38,10 @@ export function Navbar() {
               <Link
                 key={link.name}
                 to={link.href}
-                className={`text-sm font-medium transition-colors hover:text-primary ${
-                  location.pathname === link.href
+                className={`text-sm font-medium transition-colors hover:text-primary ${location.pathname === link.href
                     ? "text-primary"
                     : "text-muted-foreground"
-                }`}
+                  }`}
               >
                 {link.name}
               </Link>

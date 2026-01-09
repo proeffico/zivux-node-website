@@ -39,8 +39,8 @@ export function Navbar() {
                 key={link.name}
                 to={link.href}
                 className={`text-sm font-medium transition-colors hover:text-primary ${location.pathname === link.href
-                    ? "text-primary"
-                    : "text-muted-foreground"
+                  ? "text-primary"
+                  : "text-muted-foreground"
                   }`}
               >
                 {link.name}
@@ -51,10 +51,10 @@ export function Navbar() {
           {/* CTA Buttons */}
           <div className="hidden md:flex items-center gap-3">
             <Button variant="ghost" asChild>
-              <Link to="/login">Sign In</Link>
+              <Link to="https://app.zivux.ai/">Sign In</Link>
             </Button>
             <Button variant="gradient" asChild>
-              <Link to="/signup">Start Free Trial</Link>
+              <Link to="/coming">Start Free Trial</Link>
             </Button>
           </div>
 
@@ -93,7 +93,7 @@ export function Navbar() {
                   <Link to="/login">Sign In</Link>
                 </Button>
                 <Button variant="gradient" asChild className="w-full">
-                  <Link to="/signup">Start Free Trial</Link>
+                  <Link to="/coming">Start Free Trial</Link>
                 </Button>
               </div>
             </div>

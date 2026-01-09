@@ -79,29 +79,6 @@ const stats = [
   { value: "4.9/5", label: "Customer Satisfaction" },
 ];
 
-/*const testimonials = [
-  {
-    quote:
-      "We reduced first response time by 62% in the first month after moving to Zivux.ai.",
-    author: "Sarah Chen",
-    role: "Head of Sales, SaaS Company",
-    rating: 5,
-  },
-  {
-    quote:
-      "Workflow automation alone saved our operations team nearly 20 hours every week.",
-    author: "Michael Park",
-    role: "Operations Manager",
-    rating: 5,
-  },
-  {
-    quote:
-      "Zivux.ai finally gave us one place to manage WhatsApp, email, and support tickets.",
-    author: "Emily Rodriguez",
-    role: "Customer Success Lead",
-    rating: 5,
-  },
-]*/;
 
 /* =======================
    COMPONENT

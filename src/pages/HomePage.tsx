@@ -18,7 +18,6 @@ import {
   Shield,
   TrendingUp,
   Clock,
-  Star,
 } from "lucide-react";
 
 /* =======================
@@ -80,7 +79,7 @@ const stats = [
   { value: "4.9/5", label: "Customer Satisfaction" },
 ];
 
-const testimonials = [
+/*const testimonials = [
   {
     quote:
       "We reduced first response time by 62% in the first month after moving to Zivux.ai.",
@@ -102,7 +101,7 @@ const testimonials = [
     role: "Customer Success Lead",
     rating: 5,
   },
-];
+]*/;
 
 /* =======================
    COMPONENT

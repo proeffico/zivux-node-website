@@ -22,7 +22,6 @@ import ContactPage from "./pages/ContactPage";
 import PrivacyPolicyPage from "./pages/PrivacyPolicyPage";
 import TermsConditionsPage from "./pages/terms-conditions";
 import SecurityPage from "./pages/security";
-// import GDPRPage from "./pages/gdpr";
 import ScheduleDemo from "./pages/ScheduleDemo";
 import Blobpage from "./pages/blog";
 import Documentation from "./pages/Documentation";

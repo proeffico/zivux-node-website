@@ -108,7 +108,7 @@ const sections = [
     content: (
       <p>
         You may request access, correction, or deletion of your personal data by
-        contacting us at <strong>contact@proeffico.com</strong>.
+        contacting us at <strong>sales@zivux.ai</strong>.
       </p>
     ),
   },

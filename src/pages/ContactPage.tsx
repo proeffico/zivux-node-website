@@ -104,7 +104,7 @@ export default function ContactPage() {
             </p>
 
             {[
-              { label: "Email", value: "contact@proeffico.com" },
+              { label: "Email", value: "sales@zivux.ai" },
               { label: "Phone", value: "+91 9667796006" },
               { label: "Location", value: "Office B-23, Sector 67,Noida , 201301" },
             ].map((item, i) => (

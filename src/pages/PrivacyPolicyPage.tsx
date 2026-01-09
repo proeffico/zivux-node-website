@@ -215,7 +215,7 @@ const sections = [
     content: (
       <p>
         For questions or requests related to privacy, contact us at{" "}
-        <strong>contact@proeffico.com</strong>
+        <strong>sales@zivux.ai</strong>
       </p>
     ),
   },

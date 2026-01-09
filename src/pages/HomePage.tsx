@@ -267,7 +267,7 @@ export default function HomePage() {
       {/* =======================
           TESTIMONIALS
       ======================= */}
-      <section className="py-20 lg:py-32 bg-gradient-to-br from-primary/5 via-transparent to-accent/5">
+      {/* <section className="py-20 lg:py-32 bg-gradient-to-br from-primary/5 via-transparent to-accent/5">
         <div className="container mx-auto px-4 grid md:grid-cols-3 gap-6">
           {testimonials.map((t) => (
             <div key={t.author} className="p-6 rounded-2xl bg-card border shadow-card">
@@ -284,7 +284,7 @@ export default function HomePage() {
             </div>
           ))}
         </div>
-      </section>
+      </section> */}
 
       {/* =======================
           FINAL CTA

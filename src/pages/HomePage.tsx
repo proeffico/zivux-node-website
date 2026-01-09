@@ -120,7 +120,7 @@ export default function HomePage() {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
               <Button size="xl" variant="hero" asChild>
-                <Link to="/signup">
+                <Link to="/coming">
                   Start Free Trial
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Link>
@@ -277,7 +277,7 @@ export default function HomePage() {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="xl" className="bg-background text-foreground hover:text-white" asChild>
-                <Link to="/signup">
+                <Link to="/coming">
                   Start Free Trial
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Link>

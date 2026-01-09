@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -7,6 +8,57 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 
 export default function ScheduleDemo() {
+    const [loading, setLoading] = useState(false);
+    const [success, setSuccess] = useState("");
+    const [error, setError] = useState("");
+
+    async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+        e.preventDefault();
+
+        const form = e.currentTarget; // ✅ capture immediately
+        const formData = new FormData(form);
+
+        setLoading(true);
+        setSuccess("");
+        setError("");
+
+        const payload = {
+            branch_id: "proeffico",
+            org_id: 7,
+            entered_by: 7,
+            customer_name: formData.get("name"),
+            email: formData.get("email"),
+            company_name: formData.get("company"),
+            contact_no: formData.get("phone"),
+            comments: formData.get("message"),
+            status_id: 81,
+            substatus_id: 39,
+            priority: "Medium",
+            type: 10, // demo request
+        };
+
+        try {
+            const res = await fetch('https://api.zivux.ai/what-add-lead', {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTQxMCwiaWF0IjoxNzUxOTc1MTExfQ.ElI5Pe4uW3PDw2xWuTDZrykAonM4K9_3KpDwaspkTvw`,
+                },
+                body: JSON.stringify(payload),
+            });
+
+            const data = await res.json();
+            if (!res.ok) throw new Error(data.message || "Failed to submit demo request");
+
+            setSuccess("✅ Demo request submitted! Our team will contact you shortly.");
+            form.reset(); // ✅ safe reset
+        } catch (err: any) {
+            setError(err.message || "Something went wrong");
+        } finally {
+            setLoading(false);
+        }
+    }
+
     return (
         <div className="relative overflow-hidden">
 
@@ -18,9 +70,7 @@ export default function ScheduleDemo() {
                     transition={{ duration: 0.7 }}
                     className="relative z-10"
                 >
-                    <Badge className="mb-6 px-4 py-1.5">
-                        Schedule a Demo
-                    </Badge>
+                    <Badge className="mb-6 px-4 py-1.5">Schedule a Demo</Badge>
 
                     <h1 className="text-4xl md:text-6xl font-extrabold mb-6 gradient-text">
                         See Zivux.ai in Action
@@ -46,7 +96,7 @@ export default function ScheduleDemo() {
                 />
             </section>
 
-            {/* FORM SECTION */}
+            {/* FORM */}
             <section className="py-20 container mx-auto px-4">
                 <div className="grid lg:grid-cols-2 gap-12 items-start">
 
@@ -78,36 +128,36 @@ export default function ScheduleDemo() {
 
                     {/* DEMO FORM */}
                     <motion.form
+                        onSubmit={handleSubmit}
                         initial={{ opacity: 0, x: 40 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6 }}
                         className="bg-card border border-border rounded-3xl p-8 shadow-card space-y-6"
-                        onSubmit={(e) => {
-                            e.preventDefault();
-                            // TODO: Hook API / Email / CRM submission
-                            alert("Demo request submitted!");
-                        }}
                     >
                         <h3 className="text-2xl font-bold gradient-text">
                             Book Your Demo
                         </h3>
 
                         <div className="grid sm:grid-cols-2 gap-4">
-                            <Input required placeholder="Full Name" />
-                            <Input required type="email" placeholder="Work Email" />
+                            <Input name="name" required placeholder="Full Name" />
+                            <Input name="email" type="email" required placeholder="Work Email" />
                         </div>
 
-                        <Input placeholder="Company Name" />
-                        <Input placeholder="Phone Number" />
+                        <Input name="company" placeholder="Company Name" />
+                        <Input name="phone" placeholder="Phone Number" />
 
                         <Textarea
+                            name="message"
                             placeholder="Tell us about your use case (optional)"
                             rows={4}
                         />
 
-                        <Button className="w-full text-lg py-6">
-                            Schedule Demo
+                        {success && <p className="text-green-600">{success}</p>}
+                        {error && <p className="text-red-600">{error}</p>}
+
+                        <Button className="w-full text-lg py-6" disabled={loading}>
+                            {loading ? "Submitting..." : "Schedule Demo"}
                         </Button>
 
                         <p className="text-xs text-muted-foreground text-center">
@@ -116,7 +166,6 @@ export default function ScheduleDemo() {
                     </motion.form>
                 </div>
             </section>
-
         </div>
     );
 }

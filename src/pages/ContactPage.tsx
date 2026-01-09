@@ -13,24 +13,31 @@ export default function ContactPage() {
   const [error, setError] = useState("");
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    const form = e.currentTarget;
     e.preventDefault();
     setLoading(true);
     setSuccess("");
     setError("");
 
     const formData = new FormData(e.currentTarget);
-
     const payload = {
-      name: formData.get("name"),
+      "branch_id": "proeffico",
+      "org_id": 7,
+      "entered_by": 7,
+      customer_name: formData.get("name"),
       email: formData.get("email"),
-      company: formData.get("company"),
-      message: formData.get("message"),
+      company_name: formData.get("company"),
+      comments: formData.get("message"),
+      "status_id": "81",
+      "substatus_id": 39,
+      "contact_no": formData.get("phone"),
+      "priority": "High",
+      "type": 9,
     };
-
     try {
-      const res = await fetch("/api/contact", {
+      const res = await fetch('https://api.zivux.ai/what-add-lead', {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: { "Content-Type": "application/json", 'Authorization': `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTQxMCwiaWF0IjoxNzUxOTc1MTExfQ.ElI5Pe4uW3PDw2xWuTDZrykAonM4K9_3KpDwaspkTvw` },
         body: JSON.stringify(payload),
       });
 
@@ -38,7 +45,7 @@ export default function ContactPage() {
       if (!res.ok) throw new Error(data.message || "Something went wrong");
 
       setSuccess("✅ Message sent successfully! Our team will contact you shortly.");
-      e.currentTarget.reset();
+      form.reset();
     } catch (err: any) {
       setError(err.message || "Failed to send message");
     } finally {
@@ -66,7 +73,7 @@ export default function ContactPage() {
           </h1>
 
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            Have questions about Zivux.ai CRM or Proeffico solutions?  
+            Have questions about Zivux.ai CRM or Proeffico solutions?
             Our team is here to help you grow faster.
           </p>
         </motion.div>
@@ -136,8 +143,10 @@ export default function ContactPage() {
               <Input name="name" placeholder="Your Name" required />
               <Input name="email" type="email" placeholder="Your Email" required />
             </div>
-
-            <Input name="company" placeholder="Company Name" />
+            <div className="grid sm:grid-cols-2 gap-4">
+              <Input name="company" placeholder="Company Name" />
+              <Input name="phone" placeholder="Phone Number" />
+            </div>
 
             <Textarea
               name="message"

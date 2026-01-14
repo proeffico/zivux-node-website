@@ -7,7 +7,6 @@ import zivuxLogo from "@/assets/crm-logo.jpeg";
 
 const navLinks = [
   { name: "Features", href: "/features" },
-  { name: "Pricing", href: "/pricing" },
   { name: "Use Cases", href: "/use-cases" },
   { name: "Integrations", href: "/integrations" },
 ];

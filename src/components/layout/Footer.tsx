@@ -4,7 +4,6 @@ import zivuxLogo from "@/assets/crm-logo.jpeg";
 const footerLinks = {
   product: [
     { name: "Features", href: "/features" },
-    { name: "Pricing", href: "/pricing" },
     { name: "Integrations", href: "/integrations" },
     { name: "Use Cases", href: "/use-cases" },
   ],
